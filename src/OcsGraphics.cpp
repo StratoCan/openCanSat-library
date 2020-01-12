@@ -64,15 +64,15 @@ void OcsGraphics::drawRightScreen()
 
 	ucg.setPrintPos(14, 70);
 	// Text to print
-	ucg.print("open");
+	ucg.print("Strato");
 
-	ucg.drawBox(67, 48, 80, 30);
+	ucg.drawBox(93, 48, 45, 30);
 	// Text to print
 
-	ucg.setPrintPos(69, 70);
-	ucg.setColor(17, 30, 108);
+	ucg.setPrintPos(95, 70);
+	ucg.setColor(51, 67, 96);
 
-	ucg.print("CanSat");
+	ucg.print("Can");
 
   	this->drawLeftArrow(10, 118);
 }
