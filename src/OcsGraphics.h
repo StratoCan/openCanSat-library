@@ -7,66 +7,45 @@
 
 class OcsGraphics
 {
-  public:
+	public:
 	OcsGraphics(Ucglib_ST7735_18x128x160_HWSPI& ucgIn);
 
+	// screens
 	void drawHomescreen();
 	void drawRightScreen();
 	void drawLeftScreen();
 
-	void drawBackground();
+	void drawBackground(); //bg stratocan.eu
 
-	void drawTemp(float temp);
-	void drawMinTemp(float minTemp);
-	void drawMaxTemp(float maxTemp);
+	// home values
+	void drawID(int id);
+	void drawBMPalt(float BMPalt);
+	void drawBMPtemp(float BMPtemp);
+	void drawBMPpress(float BMPpress);
+	void drawDHTtemp(float DHTtemp);
+	void drawDHThum(float DHThum);
+	// left values
+	void drawBMEalt(float BMEalt);
+	void drawBMEtemp(float BMEtemp);
+	void drawBMEpress(float BMEpress);
+	void drawBMEhum(float BMEhum);
+	// right values
+	void drawYaw(float yaw);
+	void drawPitch(float pitch);
+	void drawRoll(float roll);
 
-	void drawPress(float pressure);
-	void drawMinPress(float minPressure);
-	void drawMaxPress(float maxPressure);
-
-	void drawAltitude(float altitude);
-
-	void drawMessageId(uint16_t messageId);
-
-	void drawHumidity(float humidity);
-	void drawLongitude(float longitude);
-	void drawLatitude(float latitude);
-	void drawDate(uint8_t day, uint8_t month, uint16_t year);
-	void drawNumOfSat(uint8_t numOfSat);
-	void drawPower(float power);
-
-	void drawTime(int x, int y, String time);
-
-	void setFontColor(uint8_t r, uint8_t g, uint8_t b);
-
-  private:
+	private:
 	Ucglib_ST7735_18x128x160_HWSPI& ucg;
 
-	uint8_t fontR = 255;
-	uint8_t fontG = 255;
-	uint8_t fontB = 255;
-
-	uint8_t bgrR = 17;
-	uint8_t bgrG = 30;
-	uint8_t bgrB = 108;
-
-	int divide(int x, double y);
-
+	// icons
 	void drawHome(int x, int y, int width, int height, int r, int g, int b);
-
 	void drawRightArrow(int x, int y);
-
 	void drawLeftArrow(int x, int y);
 
-	void drawFullBox(String text, int x, int y, int sizeX);
-
-	void drawBox(int xFont, int yFont1, int start);
-
-	void drawHumidityBox();
-
-	void drawBackgroundStatic();
-
-	void drawData(String data, int x, int y, const ucg_fntpgm_uint8_t *font, String unit, int fontSize);
+	// util
+	void drawFullBox(String text, int x, int y, int sizeX); // box for values
+	int divide(int x, double y);
+	void drawData(String data, int x, int y);
 };
 
 #endif /* _OCSGRAPHICS_HH */
